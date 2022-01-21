@@ -1,0 +1,140 @@
+<H1><strong>Divide and Conquer approach to find the Measure and Contour for a set of iso-rectangles</strong></H1>
+<p><span style="font-weight: 400;">The following is the list of team members:</span></p>
+<table>
+<tbody>
+<tr>
+<td>
+<p><strong>S.No</strong></p>
+</td>
+<td>
+<p><strong>&ensp;ID No</strong></p>
+</td>
+<td>
+<p><strong>&ensp;&ensp;Name</strong></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">1.</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;2017B2A71604H</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;&ensp;Pranav V Grandhi</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">2.</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;2017B3A70878H</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;&ensp;Rahul R Shevade</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">3.</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;2017B3A70740H</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;&ensp;Vamshi Kasam</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">4.</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;2017B3A71386H</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">		&ensp;&ensp;Shanmukh Kali Prasad</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><br /><br /></p>
+<p><strong>Experimental Results</strong></p>
+<p><span style="font-weight: 400;">We have implemented the divide and conquer algorithm which was discussed in the paper written by Ralf Hartmut Guting. The objective is to find out the measure and the contour of a set of iso-rectangles. The measure is the area that is bounded inside the set of rectangles and contour is the outermost edges of the set of rectangles.&nbsp;</span></p>
+<p><span style="font-weight: 400;">The algorithm described in a paper is a divide and conquer algorithm which runs in O(nlogn) time.&nbsp;</span></p>
+<p><span style="font-weight: 400;">We have implemented the algorithm described in the paper using C++. We have also visualized the outputs using the matplotlib library in python. The program has been tested for smaller inputs and the answers were validated. Then we have also implemented it using larger datasets to check the robustness of the algorithm.&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><strong>Test Cases-</strong></p>
+<p>Click <a href="DAA.html" target="_blank">Here</a> for the results of few Test Cases.</p>
+<p>&nbsp;</p>
+<p><strong>General Discussion on the algorithm-</strong></p>
+<p><span style="font-weight: 400;">This is an alternate approach to finding the measure and contour of a set of iso rectangles. This algorithm was previously tackled using line sweep algorithms. A divide and conquer approach involves the breaking of complex problems into smaller ones and tackling them independently. A new technique called &lsquo;seperational representation&rsquo; has been used which extends the applicability of the divide and conquer approach to orthogonal planar objects. Rectangles play a major role in applications like VLSI design, geography and computer graphics. Therefore, this field of study is pretty important.&nbsp;</span></p>
+<p><span style="font-weight: 400;">The following is a concise version of the algorithm which was implemented by us. The main function that implements the divide and conquer algorithm is the function called STRIPES. This function, during the divide part, cuts the horizontal edges into two parts and sends each part to the STRIPES function recursively. This keeps happening till the base case of the recursion is reached. The base case of the recursion is when the number of edges in each half is one. The stripes are generated for the base case for both the halves. Then the conquer part of the algorithm comes into play. During the conquer phase, the following functions are called:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Copy</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Blacken</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Concat</span></li>
+</ul>
+<p><span style="font-weight: 400;">These functions effectively merge both the stripes of the individual halves into one stripe. After the entire recursion is executed, we utilize the final stripes to calculate the measure and contour of the set of iso-rectangles given as input.&nbsp;</span></p>
+<p><span style="font-weight: 400;">It is important to note that the stripes structures for both measure and contour are very different. The measure has a component called x_measure and contour has a component called ctree. The measure and coconut pieces can be calculated as discussed in the paper.&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><strong>Issues in Coding-</strong></p>
+<p><span style="font-weight: 400;">We needed to implement a divide and conquer algorithm which has the same complexity as the original line-sweep algorithm of O(nlogn). We have implemented using the C++ language. The STL library was used to implement many structures.&nbsp;</span></p>
+<p><span style="font-weight: 400;">Visualization for large test cases is not very feasible as plotting greater than 50 rectangles fills the whole plot completely.&nbsp; It was difficult to match the complexity suggested by the paper and certain flexibilities were undertaken for a slightly more convenient implementation by using vectors instead of sets. Therefore, we checked the correctness of the algorithm for small cases, while visualizing them. The larger test cases could not be easily visualized.&nbsp;</span></p>
+<p><span style="font-weight: 400;">Since the structures for measure and the contour program are different, two different programs were written for them. They have to be implemented serially. Since visualization libraries are easier to use in python, the visualization was implemented in python. The C++ programs output the measure and the contour pieces to a file which are taken as input by the python file to plot the graphs.&nbsp;</span></p>
+<p><br /><br /></p>
+<p><strong>Timing Analysis</strong></p>
+<p><span style="font-weight: 400;">The paper has proven that the algorithm is O(nlogn) complexity. The base case is of complexity O(1). Then the recurrence relation is as follows:</span></p>
+<p><span style="font-weight: 400;">After solving this, we get the final complexity to be O(nlogn). Similarly, the space complexity is also O(nlogn).&nbsp;</span></p>
+<p><span style="font-weight: 400;">The following is a table depicting the time taken to run with respect to the number of rectangles:</span></p>
+<table>
+<tbody>
+<tr>
+<td>
+<p><span style="font-weight: 400;">Rectangles</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;2</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;10</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;50</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;2000</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">Time(seconds)</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">~0</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">~0</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">~0</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">&ensp;1</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><br /><br /></p>
+<p><strong>References</strong></p>
+<ul>
+<li style="font-weight: 400;"><a href="https://www.doxygen.nl/index.html"><span style="font-weight: 400;">https://www.doxygen.nl/index.html</span></a></li>
+<li style="font-weight: 400;"><a href="https://www.w3schools.com/html/"><span style="font-weight: 400;">https://www.w3schools.com/html/</span></a></li>
+<li style="font-weight: 400;"><a href="https://matplotlib.org/"><span style="font-weight: 400;">https://matplotlib.org/</span></a></li>
+<li style="font-weight: 400;"><a href="https://en.cppreference.com/w/"><span style="font-weight: 400;">https://en.cppreference.com/w/</span></a></li>
+<li style="font-weight: 400;"><a href="https://cp-algorithms.com/geometry/intersecting_segments.html"><span style="font-weight: 400;">https://cp-algorithms.com/geometry/intersecting_segments.html</span></a></li>
+<li style="font-weight: 400;"><a href="https://www.hackerearth.com/practice/math/geometry/line-sweep-technique/tutorial/"><span style="font-weight: 400;">https://www.hackerearth.com/practice/math/geometry/line-sweep-technique/tutorial/</span></a></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">G&uuml;ting, R. H. (1984). Optimal divide-and-conquer to compute measure and contour for a set of iso-rectangles. </span><em><span style="font-weight: 400;">Acta Informatica</span></em><span style="font-weight: 400;">, </span><em><span style="font-weight: 400;">21</span></em><span style="font-weight: 400;">(3), 271-291.</span></li>
+</ul>
+<p>&nbsp;</p>
